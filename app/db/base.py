@@ -1,4 +1,5 @@
 from sqlalchemy.ext import declarative
-from models.user import User
 
 Base = declarative.declarative_base()
+from app.models.user import User
+from app.models.note import Note
