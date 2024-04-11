@@ -7,14 +7,13 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from dotenv import load_dotenv
 from app.db.base import Base
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(os.path.join(BASE_DIR, ".env"))
-sys.path.append(BASE_DIR)
+from core.config import settings
 
-# load_dotenv()
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# load_dotenv(os.path.join(BASE_DIR, ".env"))
+sys.path.append(BASE_DIR)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -22,7 +21,7 @@ config = context.config
 
 # Add the database uri from the os environment to override the 
 # database url parameter in alembic.ini file
-config.set_main_option("sqlalchemy.url", os.environ.get("MYSQL_DATABASE_URI"))
+config.set_main_option("sqlalchemy.url", settings.MYSQL_DATABASE_URI)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

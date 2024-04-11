@@ -1,12 +1,8 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from dotenv import load_dotenv
+from core.config import settings
 
-load_dotenv()
-
-
-engine = create_engine(os.environ.get(
-    "MYSQL_DATABASE_URI"))
+engine = create_engine(settings.MYSQL_DATABASE_URI)
 
 Session = sessionmaker(autoflush=False, bind=engine)

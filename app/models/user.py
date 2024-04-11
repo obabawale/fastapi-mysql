@@ -12,3 +12,4 @@ class User(Base):
     first_name = Column(String(16), nullable=False)
     last_name = Column(String(16), nullable=False)
     password = Column(String(16), nullable=False)
+

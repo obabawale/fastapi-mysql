@@ -2,6 +2,12 @@ from typing import Union
 
 from fastapi import FastAPI
 
+from core.config import settings
+
+print("Mysql user", settings.MYSQL_USER)
+print("Mysql password", settings.MYSQL_PASSWORD)
+print("Mysql database uri", settings.MYSQL_DATABASE_URI)
+
 app = FastAPI()
 
 
